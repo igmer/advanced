@@ -56,6 +56,7 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
+
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -64,6 +65,22 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 </div>
+<?php
+yii\bootstrap\Modal::begin([
+    'headerOptions' => ['id' => 'modalHeader'],
+    'options' => [
+        'tabindex' => false // important for Select2 to work properly
+    ],
+    'id' => 'modal',
+    'size' => 'modal-lg',
+    //keeps from closing modal with esc key or by clicking out of the modal.
+    // user must click cancel or X to close
+   // 'clientOptions' => ['backdrop' => 'static', 'keyboard' => FALSE]
+]);
+echo "<div id='modalContent'></div>";
+yii\bootstrap\Modal::end();
+?>
+
 
 <footer class="footer">
     <div class="container">
